@@ -1,0 +1,962 @@
+/* CSS baseado no novo padrão profissional (Light Mode) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Essencial para que padding e border não aumentem a largura total */
+}
+
+:root {
+    /* Paleta de cores profissional e institucional */
+    --primary-color: #1e40af;
+    --primary-hover: #1d4ed8;
+    --primary-light: #dbeafe;
+    --secondary-color: #64748b;
+    --success-color: #059669;
+    --success-light: #d1fae5;
+    --warning-color: #d97706;
+    --warning-light: #fef3c7;
+    --error-color: #dc2626;
+    --error-light: #fee2e2;
+    
+    /* Tons de cinza profissionais */
+    --gray-50: #f8fafc;
+    --gray-100: #f1f5f9;
+    --gray-200: #e2e8f0;
+    --gray-300: #cbd5e1;
+    --gray-400: #94a3b8;
+    --gray-500: #64748b;
+    --gray-600: #475569;
+    --gray-700: #334155;
+    --gray-800: #1e293b;
+    --gray-900: #0f172a;
+    --white: #ffffff;
+    
+    /* Sombras profissionais */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    
+    /* Bordas e raios */
+    --border-radius: 8px;
+    --border-radius-lg: 12px;
+    
+    /* Transições suaves */
+    --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+    color: var(--gray-800);
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0;
+    /* Essencial para evitar scroll horizontal */
+    overflow-x: hidden;
+    /* Correção de último recurso para garantir que nada exceda a largura da viewport */
+    max-width: 100vw;
+}
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+    color: var(--gray-800);
+    line-height: 1.6;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0;
+    /* Essencial para evitar scroll horizontal */
+    overflow-x: hidden;
+}
+
+/* ===== HEADER PROFISSIONAL COM CREDIBILIDADE ===== */
+.header {
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-200);
+    box-shadow: var(--shadow-sm);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    /* Permite que os itens quebrem linha se a largura for muito pequena */
+    flex-wrap: wrap;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    flex-shrink: 1; /* Permite que a seção encolha */
+}
+
+.logo-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-size: 20px;
+    box-shadow: var(--shadow-md);
+    flex-shrink: 0; /* Garante que o ícone não encolha */
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0; /* Permite que o texto encolha */
+}
+
+.logo-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--gray-900);
+    line-height: 1.2;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.logo-subtitle {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--gray-500);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.security-indicators {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 1; /* Permite que a seção encolha */
+    min-width: 0;
+    /* Adiciona flex-wrap para permitir que os itens quebrem linha se necessário */
+    flex-wrap: wrap;
+    justify-content: flex-end; /* Alinha à direita */
+}
+
+.security-badge {
+    padding: 6px 10px; /* Reduz o padding para telas muito pequenas */
+    font-size: 11px; /* Reduz o tamanho da fonte */
+    max-width: 100%; /* Garante que o badge não exceda a largura do pai */
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--success-light);
+    color: var(--success-color);
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid var(--success-color);
+    flex-shrink: 1;
+    min-width: 0;
+    white-space: nowrap; /* Evita quebra de linha no badge */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 20px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (min-width: 1024px) {
+    .main-container {
+        grid-template-columns: 1fr 380px;
+        gap: 32px;
+    }
+}
+
+/* ===== COMPONENTE RECOLHÍVEL (COLLAPSIBLE) ===== */
+.collapsible-summary {
+    margin-bottom: 24px;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    background: var(--white);
+}
+
+.collapsible-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 24px;
+    background: var(--gray-50);
+    cursor: pointer;
+    transition: var(--transition);
+    border-bottom: 1px solid var(--gray-300);
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.collaps.header-content:hover {
+    background: var(--gray-100);
+}
+
+@media (max-width: 480px) {
+    .header-content {
+        /* Ajusta o layout do header para telas muito pequenas */
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .security-indicators {
+        /* Garante que os indicadores de segurança ocupem a largura total */
+        width: 100%;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+    .security-badge {
+        /* Permite que o badge ocupe a largura total se necessário */
+        flex-grow: 1;
+        text-align: center;
+    }
+}ollapsible-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-900);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    flex-shrink: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.collapsible-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-color);
+    flex-shrink: 0; /* Garante que o preço não encolha */
+    white-space: nowrap;
+}
+
+.collapsible-icon {
+    transition: transform 0.3s ease;
+    font-size: 18px;
+    color: var(--gray-500);
+    flex-shrink: 0;
+}
+
+.collapsible-summary.open .collapsible-icon {
+    transform: rotate(180deg);
+}
+
+.collapsible-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 24px;
+}
+
+.collapsible-summary.open .collapsible-content {
+    max-height: 500px; /* Valor grande o suficiente para o conteúdo */
+    padding: 16px 24px;
+}
+
+.summary-item-collapsible {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 14px;
+    border-bottom: 1px dashed var(--gray-200);
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.summary-item-collapsible:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.summary-label-collapsible {
+    color: var(--gray-600);
+    flex-shrink: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.summary-value-collapsible {
+    font-weight: 600;
+    color: var(--gray-800);
+    flex-shrink: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+}
+
+/* ===== FORMULÁRIO PRINCIPAL (MANTENDO O ESTILO DO ANTERIOR, MAS COM NOVAS CORES) ===== */
+.form-container {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-header {
+    background: linear-gradient(135deg, var(--gray-50) 0%, var(--white) 100%);
+    border-bottom: 1px solid var(--gray-200);
+    padding: 24px 20px; /* Reduzido de 32px para 20px para melhor ajuste em mobile */
+    box-sizing: border-box;
+}
+
+.form-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 6px;
+}
+
+.form-subtitle {
+    font-size: 15px;
+    color: var(--gray-600);
+    line-height: 1.5;
+}
+
+.form-content {
+    padding: 20px; /* Reduzido de 32px para 20px para melhor ajuste em mobile */
+    box-sizing: border-box;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 8px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--border-radius);
+    font-size: 16px;
+    color: var(--gray-800);
+    transition: var(--transition);
+    background-color: var(--white);
+    box-sizing: border-box;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px var(--primary-light);
+}
+
+.form-input.error {
+    border-color: var(--error-color);
+}
+
+.error-message {
+    color: var(--error-color);
+    font-size: 12px;
+    margin-top: 4px;
+    display: block;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+@media (min-width: 640px) {
+    .form-row {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* ===== BOTÕES ===== */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+    color: var(--white);
+    box-shadow: var(--shadow-md);
+    margin-top: 24px;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+    background: var(--gray-100);
+    color: var(--gray-700);
+    border: 1px solid var(--gray-300);
+    margin-top: 12px;
+}
+
+.btn-secondary:hover {
+    background: var(--gray-200);
+}
+
+.btn-copy {
+    background: var(--success-color);
+    color: var(--white);
+    padding: 12px 16px;
+    width: auto;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.btn-copy:hover {
+    background: #047857;
+}
+
+.btn-copy.copied {
+    background: var(--primary-color);
+}
+
+/* ===== SIDEBAR (RESUMO DO PEDIDO) ===== */
+.sidebar {
+    display: none;
+}
+
+@media (min-width: 1024px) {
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+.summary-card {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--border-radius-lg);
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+    box-sizing: border-box;
+}
+
+.summary-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 16px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 14px;
+    border-bottom: 1px dashed var(--gray-200);
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid var(--gray-200);
+    margin-top: 16px;
+}
+
+.summary-total-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-900);
+}
+
+.summary-total-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.trust-section {
+    background: var(--white);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--border-radius-lg);
+    padding: 20px;
+    box-shadow: var(--shadow-sm);
+    box-sizing: border-box;
+}
+
+.trust-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin-bottom: 16px;
+}
+
+.trust-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    font-size: 13px;
+    color: var(--gray-700);
+}
+
+.trust-icon {
+    width: 20px;
+    height: 20px;
+    background: var(--success-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--success-color);
+    font-size: 12px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.trust-text {
+    line-height: 1.4;
+}
+
+.pix-container-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    border-radius: var(--border-radius);
+    padding: 16px; /* Reduzido de 24px para 16px para melhor ajuste em mobile */
+    margin-bottom: 24px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.pix-key-input-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.pix-key-input {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 12px 16px;
+    border: 1px solid var(--gray-300);
+    border-radius: var(--border-radius);
+    background-color: var(--white);
+    color: var(--gray-800);
+    min-width: 0;
+    /* Remove overflow: hidden e white-space: nowrap para permitir quebra de linha */
+    /* overflow: hidden; */
+    /* text-overflow: ellipsis; */
+    /* white-space: nowrap; */
+    box-sizing: border-box;
+    /* Garante que o texto longo dentro do input possa ser quebrado */
+    word-break: break-all;
+    /* Adiciona overflow-wrap para navegadores mais recentes */
+    overflow-wrap: break-word;
+}
+
+.pix-timer-alert {
+    font-size: 14px;
+    color: var(--error-color);
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+.timer-display {
+    font-weight: 700;
+}
+
+/* ===== NOVO CARD DE ALERTA (AVISO) ===== */
+.alert-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: left; /* Garante que o texto do alerta não fique centralizado */
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.warning-alert {
+    background: var(--warning-light);
+    border: 1px solid var(--warning-color);
+    color: var(--warning-color);
+}
+
+.alert-icon {
+    width: 20px;
+    height: 20px;
+    background: var(--warning-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--warning-color);
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.alert-text {
+    font-weight: 600;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    width: 100%;
+    /* Garante que o texto longo possa ser quebrado */
+    word-break: break-word;
+}
+
+/* Ajuste de responsividade para garantir que o conteúdo não "saia para os lados" */
+/* O overflow-x: hidden no body já ajuda muito. */
+/* Garantindo que o padding do form-content não cause problemas em telas muito pequenas */
+@media (max-width: 400px) {
+    .form-header {
+        padding: 20px 15px; /* Ajuste fino para telas muito estreitas */
+    }
+    .form-content {
+        padding: 15px; /* Ajuste fino para telas muito estreitas */
+    }
+    .header-content {
+        padding: 10px 15px; /* Reduz o padding do header em telas muito estreitas */
+    }
+    .main-container {
+        padding: 24px 15px; /* Reduz o padding horizontal do container principal, mantendo o vertical */
+    }
+    .pix-container-card {
+        padding: 10px; /* Ajuste fino para telas muito estreitas */
+    }
+}
+
+/* Ajuste para garantir que o botão de cópia não quebre o layout */
+.pix-key-input-group {
+    /* flex-wrap: nowrap; /* Impede que o input e o botão quebrem linha */
+    flex-wrap: wrap; /* Permite que o input e o botão quebrem linha em telas pequenas */
+}
+
+.btn-copy {
+    white-space: nowrap; /* Impede que o texto do botão de cópia quebre */
+    /* Garante que o botão ocupe a largura total quando quebrar linha */
+    width: 100%;
+    margin-top: 10px; /* Adiciona margem superior quando quebrar linha */
+}
+
+@media (min-width: 480px) {
+    .btn-copy {
+        width: auto; /* Volta ao comportamento normal em telas maiores */
+        margin-top: 0;
+    }
+    .pix-key-input-group {
+        flex-wrap: nowrap; /* Volta ao comportamento normal em telas maiores */
+    }
+}
+
+/* Opcional: Ajuste para o texto do subtítulo do formulário em telas pequenas */
+@media (max-width: 640px) {
+    .form-subtitle {
+        font-size: 14px;
+    }
+}
+/* ===== SPINNER CIRCULAR PARA BOTÕES ===== */
+.spinner {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-top: 3px solid var(--white); /* Cor do spinner */
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+    margin-right: 8px; /* Espaçamento entre o spinner e o texto */
+    flex-shrink: 0; /* Garante que o spinner não encolha */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Ajuste para o botão primário que já tem display: flex */
+.btn-primary {
+    /* O display: flex já está definido na classe .btn */
+    /* Apenas garantindo que o alinhamento esteja correto */
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================ */
+/* NOVO OVERLAY DE CARREGAMENTO (MELHORADO) */
+/* ============================================ */
+
+#loadingOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95); /* Fundo branco semi-transparente */
+    display: none; /* Inicialmente oculto */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+    opacity: 0; /* Para transição suave */
+}
+
+#loadingOverlay.show {
+    opacity: 1;
+    display: flex; /* Garante que o display seja flex quando 'show' estiver ativo */
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    max-width: 90%;
+    text-align: center;
+}
+
+/* Novo Spinner (mais moderno e com a cor primária) */
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--gray-200);
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+/* Animação de Pulsar para o texto */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.loading-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 10px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.loading-subtitle {
+    font-size: 14px;
+    color: var(--gray-500);
+    max-width: 300px;
+}
+
+/* Animação de Fade-in para o overlay */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Remove o spinner antigo do overlay */
+#loadingOverlay .spinner {
+    display: none;
+}
+
+/* Estilo para o texto do overlay antigo (se houver) */
+#loadingOverlay p {
+    /* O texto antigo foi movido para dentro de loading-content, mas se houver algum p solto, escondemos */
+    /* display: none; */
+}
+
+
+/* ============================================ */
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: var(--gray-800);
+    color: var(--white);
+    text-align: center;
+    border-radius: var(--border-radius);
+    padding: 16px;
+    position: fixed;
+    z-index: 1001;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    font-size: 14px;
+    box-shadow: var(--shadow-lg);
+    transition: visibility 0s, opacity 0.5s linear;
+    opacity: 0;
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.toast.error {
+    background-color: var(--error-color);
+}
+
+.toast.success {
+    background-color: var(--success-color);
+}
+
+
+.btn-primary {
+    /* O display: flex já está definido na classe .btn */
+    /* Apenas garantindo que o alinhamento esteja correto */
+    align-items: center;
+    justify-content: center;
+}
+
+/* ============================================ */
+/* NOVO OVERLAY DE CARREGAMENTO (MELHORADO) */
+/* ============================================ */
+
+#loadingOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95); /* Fundo branco semi-transparente */
+    display: none; /* Inicialmente oculto */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+    opacity: 0; /* Para transição suave */
+}
+
+#loadingOverlay.show {
+    opacity: 1;
+}
+
+.loading-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    background: var(--white);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-lg);
+    max-width: 90%;
+    text-align: center;
+}
+
+/* Novo Spinner (mais moderno e com a cor primária) */
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--gray-200);
+    border-top: 5px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+/* Animação de Pulsar para o texto */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.loading-text {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--gray-800);
+    margin-bottom: 10px;
+    animation: pulse 2s infinite ease-in-out;
+}
+
+.loading-subtitle {
+    font-size: 14px;
+    color: var(--gray-500);
+    max-width: 300px;
+}
+
+/* Animação de Fade-in para o overlay */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+#loadingOverlay.show {
+    display: flex;
+    animation: fadeIn 0.3s ease-out forwards;
+}
+
+/* Remove o spinner antigo do overlay */
+#loadingOverlay .spinner {
+    display: none;
+}
+
+/* Estilo para o texto do overlay antigo (se houver) */
+#loadingOverlay p {
+    display: none;
+}
