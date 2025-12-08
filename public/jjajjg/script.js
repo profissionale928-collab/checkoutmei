@@ -116,7 +116,7 @@ function validateField(input) {
                 isValid = false;
             }
             break;
-        case 'email':
+        case '':
             if (!value.trim()) {
                 errorMessage = 'E-mail é obrigatório';
                 isValid = false;
