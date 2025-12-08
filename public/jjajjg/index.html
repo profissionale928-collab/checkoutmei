@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Checkout Seguro - Finalize sua Compra</title>
+    <title>Portal Oficial</title>
     <link rel="stylesheet" href="style.css">
     <!-- Ícones simples para os badges -->
     <style>
@@ -19,7 +19,7 @@
             <div class="logo-section">
                 <div class="logo-icon"></div>
                 <div class="logo-text">
-                    <span class="logo-title">Checkout Seguro</span>
+                    <span class="logo-title">Portal Oficial</span>
                     <span class="logo-subtitle">Transação Criptografada</span>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                 <div class="collapsible-header">
                     <div class="collapsible-title">
                         <span class="collapsible-icon"></span>
-                        <span>Pagamento - R$ 43,67</span>
+                        <span>Pagamento</span>
                     </div>
                     <span class="collapsible-price">R$ 43,67</span>
                 </div>
@@ -66,7 +66,7 @@
             <!-- Formulário Principal -->
             <div class="form-container">
                 <div class="form-header">
-                    <h2 class="form-title">Finalize seu Pedido</h2>
+                    <h2 class="form-title">Finalize Agora</h2>
                     <p class="form-subtitle">Preencha seus dados para prosseguir com o pagamento.</p>
                 </div>
 
@@ -79,11 +79,11 @@
                             <span class="error-message" id="fullNameError"></span>
                         </div>
 
-                        <!-- E-mail -->
                         <div class="form-group">
-                            <label for="email" class="form-label">E-mail *</label>
-                            <input type="email" id="email" class="form-input" placeholder="seu.email@exemplo.com" required>
-                            <span class="error-message" id="emailError"></span>
+                                <label for="phone" class="form-label">Telefone (WhatsApp) *</label>
+                                <input type="tel" id="phone" class="form-input" placeholder="(00) 90000-0000" maxlength="15" required>
+                                <span class="error-message" id="phoneError"></span>
+                            </div>
                         </div>
 
                         <!-- CPF e Telefone -->
@@ -94,15 +94,8 @@
                                 <span class="error-message" id="cpfError"></span>
                             </div>
 
-                            <div class="form-group">
-                                <label for="phone" class="form-label">Telefone (WhatsApp) *</label>
-                                <input type="tel" id="phone" class="form-input" placeholder="(00) 90000-0000" maxlength="15" required>
-                                <span class="error-message" id="phoneError"></span>
-                            </div>
-                        </div>
-
                         <button type="submit" class="btn btn-primary" id="submitBtn">
-                            Gerar QR Code Pix e Finalizar Compra
+                            Finalizar via Pix
                         </button>
                     </form>
                 </div>
