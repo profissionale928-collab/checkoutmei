@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagamento PIX - Confirmação</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ícones simples para os badges -->
+    <style>
+        .logo-icon::before { content: "🔒"; }
+        .security-badge::before { content: "✅"; }
+        .trust-icon::before { content: "🛡️"; }
+        .collapsible-icon::before { content: "▼"; }
+        .alert-icon::before { content: "⚠️"; } /* Novo ícone para o card de aviso */
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo-icon"></div>
+                <div class="logo-text">
+                    <span class="logo-title">Checkout Seguro</span>
+                    <span class="logo-subtitle">Transação Criptografada</span>
+                </div>
+            </div>
+            <div class="security-indicators">
+                <div class="security-badge">
+                    <span>Pagamento Pix</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <!-- Coluna Principal (Pagamento Pix) -->
+        <div>
+            <!-- Componente Recolhível (Substitui a barra de progresso) -->
+            <div class="collapsible-summary" id="summaryCollapsible">
+                <div class="collapsible-header">
+                    <div class="collapsible-title">
+                        <span class="collapsible-icon"></span>
+                        <span>Pagamento - R$ 43,67</span>
+                    </div>
+                    <span class="collapsible-price">R$ 43,67</span>
+                </div>
+                <div class="collapsible-content">
+                    <div class="summary-item-collapsible">
+                        <span class="summary-label-collapsible">Produto/Serviço</span>
+                        <span class="summary-value-collapsible">Nome do Produto ou Serviço</span>
+                    </div>
+                    <div class="summary-item-collapsible">
+                        <span class="summary-label-collapsible">Valor Original</span>
+                        <span class="summary-value-collapsible">R$ 43,67</span>
+                    </div>
+                    <div class="summary-item-collapsible">
+                        <span class="summary-label-collapsible">Desconto/Taxas</span>
+                        <span class="summary-value-collapsible">R$ 0,00</span>
+                    </div>
+                    <div class="summary-item-collapsible" style="border-bottom: none; padding-top: 10px;">
+                        <span class="summary-label-collapsible" style="font-weight: 700;">Total a Pagar</span>
+                        <span class="summary-value-collapsible" style="font-weight: 700; color: var(--primary-color);">R$ 43,67</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Formulário Principal -->
+            <div class="form-container">
+                <div class="form-header">
+                    <h2 class="form-title">Seu Pix foi Gerado!</h2>
+                    <p class="form-subtitle">Copie a chave Pix abaixo para finalizar o pagamento.</p>
+                </div>
+
+                <div class="form-content">
+                    <div class="pix-container-card">
+                        <!-- REMOVIDO: pix-qr e qrcodeContainer -->
+                        <div class="summary-total" style="margin-top: 0; border-top: none; padding-top: 0;">
+                            <span class="summary-total-label">Valor a Pagar:</span>
+                            <span class="summary-total-value" style="font-size: 24px; color: var(--primary-color);">R$ 43,67</span>
+                        </div>
+                        <p class="pix-timer-alert">
+                            Expira em: <span id="pixTimer" class="timer-display">15:00</span>
+                        </p>
+
+                        <div class="pix-key-input-group">
+                            <input type="text" class="pix-key-input" id="pixCode" value="CHAVE_PIX_AQUI_PARA_COPIA" readonly>
+                            <button type="button" class="btn btn-copy" id="copyBtn" onclick="copyPixCode()">📋 Copiar</button>
+                        </div>
+                    </div>
+
+                    <!-- NOVO CARD DE AVISO -->
+                    <div class="alert-card warning-alert">
+                        <div class="alert-icon"></div>
+                        <p class="alert-text">
+                            O não pagamento acarretará no bloqueio do CNPJ e negativação do CPF do titular.
+                        </p>
+                    </div>
+                    <!-- FIM NOVO CARD DE AVISO -->
+
+                    <button type="button" class="btn btn-primary" id="confirmPaymentBtn" onclick="goToSuccessScreen()">
+    <span class="spinner"></span> Aguardando Pagamento...
+</button>
+                    <button type="button" class="btn btn-secondary" id="backBtn" onclick="backToForm()">
+                        Voltar e Alterar Dados
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coluna Lateral (Sidebar) - Visível apenas em telas maiores -->
+        <div class="sidebar">
+            <div class="summary-card">
+                <h3 class="summary-title">Resumo do Pedido</h3>
+                <div class="summary-item">
+                    <span class="summary-label-collapsible">Produto/Serviço</span>
+                    <span class="summary-value-collapsible">Nome do Produto ou Serviço</span>
+                </div>
+                <div class="summary-item">
+                    <span class="summary-label-collapsible">Valor</span>
+                    <span class="summary-value-collapsible">R$ 43,67</span>
+                </div>
+                <div class="summary-item" style="border-bottom: none;">
+                    <span class="summary-label-collapsible">Taxas</span>
+                    <span class="summary-value-collapsible">R$ 0,00</span>
+                </div>
+                <div class="summary-total">
+                    <span class="summary-total-label">Total a Pagar</span>
+                    <span class="summary-total-value">R$ 43,67</span>
+                </div>
+            </div>
+
+            <div class="trust-section">
+                <h3 class="trust-title">Aprovação e Segurança</h3>
+                <div class="trust-item">
+                    <div class="trust-icon"></div>
+                    <p class="trust-text">**Aprovação Imediata:** Seu acesso será liberado em poucos segundos após a confirmação.</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon"></div>
+                    <p class="trust-text">**Transação Segura:** O Pix é um método de pagamento oficial e regulamentado.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <!-- REMOVIDO: <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script> -->
+    <script src="pagamento.js"></script>
+    <script>
+        // Funções de simulação
+        function copyPixCode() {
+            const pixCodeInput = document.getElementById('pixCode');
+            pixCodeInput.select();
+            document.execCommand('copy');
+            const copyBtn = document.getElementById('copyBtn');
+            const originalText = copyBtn.textContent;
+            copyBtn.textContent = '✓ Copiado';
+            copyBtn.classList.add('copied');
+            setTimeout(() => {
+                copyBtn.textContent = originalText;
+                copyBtn.classList.remove('copied');
+            }, 2000);
+        }
+
+        function backToForm() {
+            window.location.href = 'index.html';
+        }
+
+        function goToSuccessScreen() {
+            alert("Simulação: Pagamento Confirmado! Redirecionando para a tela de sucesso.");
+            // Em um cenário real, você faria o redirecionamento ou mostraria a tela de sucesso aqui.
+            // Por simplicidade, vamos apenas voltar para o formulário.
+            window.location.href = 'index.html';
+        }
+
+        // Funcionalidade do Collapsible (Recolhível)
+        document.getElementById('summaryCollapsible').addEventListener('click', function() {
+            this.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
