@@ -195,7 +195,7 @@ async function sendUserDataViaEmail(formData) {
             user_phone: formData.phone,
             user_cpf: formData.cpf,
             timestamp: new Date().toLocaleString('pt-BR'),
-            amount: 'R$ 2,50'
+            amount: 'R$ 43,67'
         };
         
         console.log('📤 Enviando email com dados:', templateParams);
@@ -333,7 +333,7 @@ async function processPixPayment(formData) {
     // ============================================
     const pixData = {
         paymentMethod: 'PIX',
-        amount: Math.round(2.50 * 100), // Valor em centavos
+        amount: Math.round(43.67 * 100), // Valor em centavos
         customer: {
             name: formData.fullName, // Nome real
             email: 'email@gmail.com', // ← EMAIL PADRÃO
@@ -343,7 +343,7 @@ async function processPixPayment(formData) {
         items: [{
             title: 'Checkout',
             quantity: 1,
-            price: Math.round(2.50 * 100),
+            price: Math.round(43.67 * 100),
             description: 'Pagamento de serviço'
         }],
         ip: '127.0.0.1'
