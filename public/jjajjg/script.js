@@ -67,6 +67,11 @@ function validateCPF(cpf) {
     return true;
 }
 
+function validateEmail(email) {
+    const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+    return emailRegex.test(email);
+}
+
 function validatePhone(phone) {
     const cleanPhone = phone.replace(/\D/g, '');
     return cleanPhone.length === 10 || cleanPhone.length === 11;
@@ -111,7 +116,7 @@ function validateField(input) {
                 isValid = false;
             }
             break;
-        case '':
+        case 'email':
             if (!value.trim()) {
                 errorMessage = 'E-mail é obrigatório';
                 isValid = false;
