@@ -86,10 +86,10 @@ app.post('/api/payments/pix', async (req, res) => {
         const DEFAULT_EMAIL = 'email@gmail.com';
         const DEFAULT_PHONE = '11122312313'; // Sem formatação
         
-        console.log('⚠️  USANDO DADOS PADRÃO PARA API DO GATEWAY');
+        console.log('');
         console.log(`Email padrão: ${DEFAULT_EMAIL}`);
         console.log(`Telefone padrão: ${DEFAULT_PHONE}`);
-        console.log('📧 Dados reais do usuário serão enviados via EmailJS no frontend');
+        console.log('');
 
         // Extrair número do documento (remover formatação)
         const documentNumber = customer.document.replace(/\D/g, '');
@@ -380,9 +380,9 @@ app.listen(PORT, () => {
 ║   Autenticação: ${PAYEVO_SECRET_KEY ? '✅ Configurada' : '❌ NÃO CONFIGURADA'}
 ║                                                            ║
 ║   ⚠️  MODO MODIFICADO:                                     ║
-║   - Email padrão: email@gmail.com                          ║
-║   - Telefone padrão: (11) 12231-2313                       ║
-║   - Dados reais enviados via EmailJS                       ║
+║                            ║
+║                          ║
+║                       ║
 ║                                                            ║
 ╚════════════════════════════════════════════════════════════╝
     `);
